@@ -3,28 +3,26 @@ package com.yupi.codertestbackend.config;
 import com.yupi.codertestbackend.service.ai.InterviewQuestionSearchTool;
 import com.yupi.codertestbackend.service.ai.LevelGenerationAiService;
 import com.yupi.codertestbackend.service.ai.ResultReportAiService;
-import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
  * AI 配置类
  */
+@Data
+@ConfigurationProperties(prefix = "langchain4j")
 @Configuration
 public class AiConfig {
-
-    @Value("${langchain4j.dashscope.api-key}")
+    private String baseUrl;
     private String apiKey;
-
-    @Value("${langchain4j.dashscope.model-name}")
     private String modelName;
-
-    @Value("${langchain4j.dashscope.temperature:0.7}")
-    private Float temperature;
+    private Double temperature;
     
     @Resource
     private InterviewQuestionSearchTool interviewQuestionSearchTool;
@@ -34,7 +32,8 @@ public class AiConfig {
      */
     @Bean
     public ChatModel chatModel() {
-        return QwenChatModel.builder()
+        return OpenAiChatModel.builder()
+                .baseUrl(baseUrl)
                 .apiKey(apiKey)
                 .modelName(modelName)
                 .temperature(temperature)

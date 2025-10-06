@@ -141,19 +141,19 @@
                 <Viewer :value="recommendedQuestionsContent" :plugins="plugins" />
               </div>
               
-              <div class="questions-footer">
-                <el-alert
-                  title="💡 提示"
-                  type="info"
-                  :closable="false"
-                  show-icon
-                >
-                  <template #default>
-                    以上面试题来自 <a href="https://www.mianshiya.com" target="_blank" class="mianshiya-link">面试鸭</a>，
-                    建议结合本次关卡的知识点进行针对性练习，提升面试通过率！
-                  </template>
-                </el-alert>
-              </div>
+<!--              <div class="questions-footer">-->
+<!--                <el-alert-->
+<!--                  title="💡 提示"-->
+<!--                  type="info"-->
+<!--                  :closable="false"-->
+<!--                  show-icon-->
+<!--                >-->
+<!--                  <template #default>-->
+<!--                    以上面试题来自 <a href="https://www.mianshiya.com" target="_blank" class="mianshiya-link">面试鸭</a>，-->
+<!--                    建议结合本次关卡的知识点进行针对性练习，提升面试通过率！-->
+<!--                  </template>-->
+<!--                </el-alert>-->
+<!--              </div>-->
             </div>
           </el-card>
         </div>

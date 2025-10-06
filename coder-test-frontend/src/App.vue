@@ -3,7 +3,7 @@
     <div class="app-content">
       <router-view />
     </div>
-    <GlobalFooter />
+<!--    <GlobalFooter />-->
   </div>
 </template>
 
